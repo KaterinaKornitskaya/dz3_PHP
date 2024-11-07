@@ -10,14 +10,29 @@ function getCountriesArr($countryFile){
 
 function isCountryReal($country, $dictionaryFile)
 {
-    $fl = false;
     $dictionaryArr = getCountriesArr($dictionaryFile);
     foreach ($dictionaryArr as $item) {
         if($item == $country){
-            $fl = true;
-            return $fl;
+            return true;
+        }
+    }
+    return false;
+}
+
+function isCountryUnique($country, $countryFile)
+{
+    $fl = true;
+    $dictionaryArr = getCountriesArr($countryFile);
+    foreach ($dictionaryArr as $item) {
+        if($item != $country){
+            continue;
+        }
+        else{
+            $fl = false;
         }
     }
     return $fl;
 }
+
+
 ?>

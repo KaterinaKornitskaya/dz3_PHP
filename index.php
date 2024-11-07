@@ -27,18 +27,23 @@
         $fileDictName = "dictionary.txt";
         $dictFile = fopen($fileDictName, "a+") or die("Unable to open file!");
 
+        $fileCountryName = "country.txt";
+        $countryFile = fopen($fileCountryName, "a+") or die("Unable to open file!");
+
         if($countryNameFromUser == ''){
-            echo "<p>Please, fill the field!</p>";
+            echo "<p>Заполните, пожалуйста, поле!</p>";
+            return;
+        }
+        else if(!isCountryUnique($countryNameFromUser, $countryFile)){
+            echo "<p>Такая страна уже есть в списке.</p>";
             return;
         }
         else if(!isCountryReal($countryNameFromUser, $dictFile)){
-            echo "<p>There is no such country.</p>";
+            echo "<p>Нельзя добавить, такой страны нет.</p>";
             return;
         }
         else{
             $countryNameToWrite = $countryNameFromUser."\n";
-            $fileCountryName = "country.txt";
-            $countryFile = fopen($fileCountryName, "a+") or die("Unable to open file!");
 
             fwrite($countryFile, $countryNameToWrite);
             fclose($countryFile);
