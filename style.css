@@ -1,0 +1,23 @@
+body{
+    background: antiquewhite;
+    text-align: center;
+}
+
+
+form{
+    background: lightsalmon;
+    width: 50%;
+    margin: 1em auto;
+    padding: 1em;
+}
+
+input, select{
+    width: 90%;
+    margin: 1em auto;
+    padding: 1em;
+}
+
+input[type="submit"]{
+    margin: 1em auto;
+    width: 30%;
+}
